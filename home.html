@@ -5,29 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Jokes</h1>
+    <h1>Joke Generator</h1>
+    <button id="btn-fetch-joke" type="button">Bring me another!</button>
+    <div id="result"></div>
 
-    <p id="result">Random Joke here</p>
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script>
 
-        var url = "https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_ten";
-        $("#result").html("Test!");
+        $("#btn-fetch-joke").click(function() {
+            fetchJoke();
+        });
 
-        $.getJSON(url, function(result){
-            var result =
-            $.each(items, function(index, item){
-                    $("#result").append(item.id);
+        const url = "https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke";
+
+
+        function fetchJoke() {
+            $.getJSON(url, function(result) {
+                $("#result").html("<p>" + result.setup + " " + result.punchline + "</p>");
+
             });
-        })
-
-        // $.getJSON(url, params, function(result){
-        //     var items = result.list.item;
-        //     $.each(items, function(index, item){
-        //         $("#food-list").append("<option value='" + item.ndbno + "'>" + item.name + "</option>");
-        //     });
-        // });
+        }
 
     </script>
 </body>
