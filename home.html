@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Joke Generator</title>
 </head>
 <body>
     <h1>Joke Generator</h1>
@@ -22,7 +22,7 @@
 
         function fetchJoke() {
             $.getJSON(url, function(result) {
-                $("#result").html("<p>" + result.setup + " " + result.punchline + "</p>");
+                $("#result").html("<p>\"" + result.setup + "\"</p><p>\"" + result.punchline + "\"</p>");
 
             });
         }
